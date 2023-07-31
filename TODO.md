@@ -5,7 +5,7 @@ ChronoBot is a Chat Archiver for discord
 - [ ] Basic functionality
 - [ ] Error handling
 - [x] Securing tokens
-- [ ] Use cogs
+- [x] Use cogs
 ### Doing in the future
 - [ ] A website to view archives
 ### Maybe
