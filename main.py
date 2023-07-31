@@ -27,4 +27,36 @@ async def on_ready():
     print(Fore.GREEN + "============================" + Fore.RESET)
 
 
+# Cog management
+@bot.slash_command()
+async def unload(ctx, cog):
+    if ctx.author.id == 1114012186877120643:
+        cog = "cogs." + cog
+        bot.unload_extension(cog)
+        await ctx.respond(f"Unloaded {cog}")
+    else:
+        await ctx.respond("No")
+
+
+@bot.slash_command()
+async def load(ctx, cog):
+    if ctx.author.id == 1114012186877120643:
+        cog = "cogs." + cog
+        bot.load_extension(cog)
+        await ctx.respond(f"Loaded {cog}")
+    else:
+        await ctx.respond("No")
+
+
+@bot.slash_command()
+async def reload(ctx, cog):
+    if ctx.author.id == 1114012186877120643:
+        cog = "cogs." + cog
+        bot.unload_extension(cog)
+        bot.load_extension(cog)
+        await ctx.respond(f"Reloaded {cog}")
+    else:
+        await ctx.respond("No")
+
+
 bot.run(TOKEN)
