@@ -7,6 +7,9 @@ name = "pypi"
 py-cord = "*"
 python-dotenv = "*"
 colorama = "*"
+pymysql = "*"
+flask = "*"
+flask-sqlalchemy = "*"
 
 [dev-packages]
 
