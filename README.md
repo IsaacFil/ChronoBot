@@ -10,7 +10,7 @@ TOKEN=<TOKEN HERE>
 
 Make sure that `pipenv` is installed.
 
-Intalling dependencies
+Installing dependencies
 ```bash
 pipenv install
 ```
