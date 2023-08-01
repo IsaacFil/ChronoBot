@@ -17,7 +17,8 @@ class Archiver(discord.Cog):
         self,
         ctx,
         channel: discord.TextChannel,
-        limit: int = 200,
+        sortby: discord.Option(str, choices=["Oldest To Newest", "Newest To Oldest"]),
+        limit: int = 100000,
         ignore_bot: bool = True,
     ):
         if channel == None:
@@ -60,12 +61,18 @@ class Archiver(discord.Cog):
                     pass
                 msg = f"[{msg_time}]({msg_author_id})--\n{msg_author}: {msg_content}"
                 msg_list.append(msg)
-
-        file = io.StringIO(linesep.join(msg_list[::-1]))
-        await ctx.edit(
-            content=f"Done! (Oldest to newest)",
-            file=File(fp=file, filename=f"{channel}-archive.txt"),
-        )
+        if sortby == "Oldest To Newest":
+            file = io.StringIO(linesep.join(msg_list[::-1]))
+            await ctx.edit(
+                content=f"Done! ({sortby})",
+                file=File(fp=file, filename=f"{channel}-archive.txt"),
+            )
+        if sortby == "Newest To Oldest":
+            file = io.StringIO(linesep.join(msg_list))
+            await ctx.edit(
+                content=f"Done! ({sortby})",
+                file=File(fp=file, filename=f"{channel}-archive.txt"),
+            )
 
 
 def setup(bot):
