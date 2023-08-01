@@ -8,7 +8,7 @@ import os
 from datetime import datetime
 
 
-class Archiver(discord.Cog):
+class HelpCommand(discord.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -21,4 +21,4 @@ class Archiver(discord.Cog):
 
 
 def setup(bot):
-    bot.add_cog(Archiver(bot))
+    bot.add_cog(HelpCommand(bot))
