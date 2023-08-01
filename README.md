@@ -9,10 +9,16 @@ Example:
 Make sure that `pipenv` is installed.
 
 Intalling dependencies
-`pipenv install`
+```
+pipenv install
+```
 
 Activating the shell
-`pipenv shell`
+```
+pipenv shell
+```
 
 Running the bot
-`python3 main.py`
+```
+python3 main.py
+```
