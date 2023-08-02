@@ -31,9 +31,12 @@ async def on_ready():
 @bot.slash_command()
 async def unload(ctx, cog):
     if ctx.author.id == 1114012186877120643:
-        cog = "cogs." + cog
-        bot.unload_extension(cog)
-        await ctx.respond(f"Unloaded {cog}")
+        try:
+            cog = "cogs." + cog
+            bot.unload_extension(cog)
+            await ctx.respond(f"Unloaded {cog}")
+        except Exception as e:
+            await ctx.respond(e)
     else:
         await ctx.respond("No")
 
@@ -41,9 +44,12 @@ async def unload(ctx, cog):
 @bot.slash_command()
 async def load(ctx, cog):
     if ctx.author.id == 1114012186877120643:
-        cog = "cogs." + cog
-        bot.load_extension(cog)
-        await ctx.respond(f"Loaded {cog}")
+        try:
+            cog = "cogs." + cog
+            bot.load_extension(cog)
+            await ctx.respond(f"Loaded {cog}")
+        except Exception as e:
+            await ctx.respond(e)
     else:
         await ctx.respond("No")
 
@@ -51,10 +57,13 @@ async def load(ctx, cog):
 @bot.slash_command()
 async def reload(ctx, cog):
     if ctx.author.id == 1114012186877120643:
-        cog = "cogs." + cog
-        bot.unload_extension(cog)
-        bot.load_extension(cog)
-        await ctx.respond(f"Reloaded {cog}")
+        try:
+            cog = "cogs." + cog
+            bot.unload_extension(cog)
+            bot.load_extension(cog)
+            await ctx.respond(f"Reloaded {cog}")
+        except Exception as e:
+            await ctx.respond(e)
     else:
         await ctx.respond("No")
 

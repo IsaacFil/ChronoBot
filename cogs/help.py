@@ -1,11 +1,6 @@
 from discord.ext import commands
 from discord.commands import slash_command
 import discord
-from discord import File
-from os import linesep
-import io
-import os
-from datetime import datetime
 
 
 class HelpCommand(discord.Cog):
