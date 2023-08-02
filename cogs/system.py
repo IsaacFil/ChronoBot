@@ -4,7 +4,6 @@ import os
 import discord
 from discord.ext import commands
 from discord.commands import slash_command
-import psutil
 import time
 
 load_dotenv("../.env")
@@ -18,13 +17,16 @@ class Sys_info(discord.Cog):
     @slash_command(name="system", description="Shows system info and performance")
     async def system(self, ctx):
         await ctx.defer()
-        header = {"Authorization": f"Bearer {PTERO_KEY}", "User-Agent": "DBH"}
+        url = 'https://panel.danbot.host/api/client/servers/971cf8a5/resources'
+        headers = {
+            "Authorization": f"Bearer {PTERO_KEY}",
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "User-Agent": "DBH"
+        }
         async with httpx.AsyncClient() as client:
-            r = await client.get(
-                "https://panel.danbot.host/api/client/servers/6b8c2da7/resources",
-                headers=header,
-            )
-            data = r.json()
+            response = await client.get(url, headers=headers)
+            data = response.json()
         embed = discord.Embed(title="Bot resources usage:", color=0x008B8B)
         embed.add_field(
             name="<:cpu:1136195600770158652> CPU Absoulute Usage (%)",

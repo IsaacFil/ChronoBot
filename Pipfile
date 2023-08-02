@@ -10,8 +10,9 @@ colorama = "*"
 pymysql = "*"
 flask = "*"
 flask-sqlalchemy = "*"
-httpx = "*"
 psutil = "*"
+requests = "*"
+httpx = "*"
 
 [dev-packages]
 
