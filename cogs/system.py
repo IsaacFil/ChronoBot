@@ -29,7 +29,7 @@ class Sys_info(discord.Cog):
             data = response.json()
         embed = discord.Embed(title="Bot resources usage:", color=0x008B8B)
         embed.add_field(
-            name="<:cpu:1136195600770158652> CPU Absoulute Usage (%)",
+            name="<:cpu:1136195600770158652> CPU Absolute Usage (%)",
             value=data["attributes"]["resources"]["cpu_absolute"],
             inline=False,
         )
